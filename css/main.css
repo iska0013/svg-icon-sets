@@ -24,27 +24,58 @@ body {
   margin: 0;
 }
 
+main.grid {
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-areas:
+    "h2"
+    "section1"
+    "section2"
+    "section3";
+  grid-gap: 6vmin;
+  justify-content: center;
+}
+
 h2 {
   font-size: 2rem;
   display: flex;
   margin: 1.25rem;
+  margin-bottom: 0;
+  grid-area: h2;
 }
 
-div.grid {
-  display: grid;
-  grid-gap: 6vmin;
-  margin: 1.25rem;
-  justify-content: center;
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1.4rem;
+}
+
+section:first-of-type {
+  grid-area: section1;
+  justify-content: space-between;
+}
+
+section:nth-of-type(2) {
+  grid-area: section2;
+}
+
+section:last-of-type {
+  grid-area: section3;
 }
 
 h3 {
   font-size: 1.5rem;
   margin: 1.25rem;
+  margin-bottom: 0;
+  margin-top: 1.3rem;
   text-align: center;
 }
 
 p {
-  font-size: 1.125rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .icon {
@@ -62,4 +93,72 @@ p {
   top: 0;
   width: 100%;
   fill: currentColor;
+}
+
+a {
+  border: .2rem solid #fff;
+  padding: 1rem;
+  color: #fff;
+  text-decoration: none;
+  max-width: 27rem;
+  font-size: 1.125rem;
+}
+
+a:hover {
+  background-color: #fff;
+  color: #ff5e3a;
+}
+
+@media only screen and (min-width: 38em) {
+
+  main.grid {
+    grid-template-areas:
+      "h2 h2 h2"
+      "section1 section2 section3";
+    margin: 0 2rem 2rem;
+  }
+
+  section {
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 2.3rem;
+    margin-left: 6rem;
+  }
+
+  h3 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
+
+@media only screen and (min-width: 60em) {
+
+  main.grid {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  section {
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 5.5rem;
+    justify-self: center;
+  }
+
+  h3 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  p {
+    max-width: 25rem;
+  }
+
 }
